@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.knack.passgenonwear.MainActivity"
+    tools:deviceIds="wear_square">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_gravity="center_horizontal"
+        android:enabled="false"
+        android:hint="@string/your_password"
+        android:inputType="text"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:background="@drawable/circle"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="@string/gen"
+        android:textColor="@color/colorWhite"
+        android:textSize="22sp"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClick"/>
+</RelativeLayout>

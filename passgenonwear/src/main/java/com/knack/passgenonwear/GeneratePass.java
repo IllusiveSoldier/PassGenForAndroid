@@ -1,4 +1,4 @@
-package com.passgen.knack.passwordgeneratorandconnecttodatabase;
+package com.knack.passgenonwear;
 
 
 import java.util.Random;

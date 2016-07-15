@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/itemResource"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textAllCaps="true"
         android:textStyle="bold"
         android:layout_alignParentTop="true"

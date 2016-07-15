@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Resource"
-        android:hint="Your resource:"
+        android:hint="@string/your_resource"
         android:inputType="textNoSuggestions|textVisiblePassword|textPassword"
         android:layout_gravity="center_horizontal"
         android:clickable="true"
@@ -20,7 +20,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/Password"
         android:inputType="textNoSuggestions|textVisiblePassword|textPassword"
-        android:enabled="false"
-        android:layout_gravity="center_horizontal"/>
+        android:enabled="true"
+        android:layout_gravity="center_horizontal"
+        android:labelFor="@+id/Password"/>
 
 </LinearLayout>

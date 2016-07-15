@@ -1,4 +1,4 @@
-package com.passgen.knack.passwordgeneratorandconnecttodatabase;
+package com.passgen.knack.PassGen;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

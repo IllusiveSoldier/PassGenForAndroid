@@ -1,4 +1,4 @@
-package com.passgen.knack.passwordgeneratorandconnecttodatabase;
+package com.passgen.knack.PassGen;
 
 
 import android.app.AlertDialog;
@@ -56,7 +56,7 @@ public class Choice extends android.support.v4.app.DialogFragment
                                 }
                                 break;
                             case 2:
-                                new ChoiceYesNo(ID, RESOURCE, PASSWORD).show(getFragmentManager(), "login");
+                                new ChoiceYesNo(ID).show(getFragmentManager(), "login");
                                 break;
                         }
                     }

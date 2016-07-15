@@ -1,4 +1,4 @@
-package com.passgen.knack.passwordgeneratorandconnecttodatabase;
+package com.passgen.knack.PassGen;
 
 
 import android.app.AlertDialog;
@@ -11,7 +11,7 @@ public class ChoiceYesNo extends android.support.v4.app.DialogFragment
 {
     int ID;
 
-    ChoiceYesNo(int id, String resource, String password)
+    ChoiceYesNo(int id)
     {
         ID = id;
     }
@@ -33,7 +33,8 @@ public class ChoiceYesNo extends android.support.v4.app.DialogFragment
                             case 0:
                                 DB db = new DB(getContext());
                                 db.DeleteValueInDatabase(ID);
-                                new ShowMessage(getContext()).ShowToast("Запись удалена!");
+                                new ShowMessage(getContext()).ShowToast("Запись удалена! \n" +
+                                                                        "Потяните вниз для обновления!");
                                 break;
                             case 1:
                                 new ShowMessage(getContext()).ShowToast("Отмена!");

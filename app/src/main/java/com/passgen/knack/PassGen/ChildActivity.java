@@ -1,7 +1,9 @@
-package com.passgen.knack.passwordgeneratorandconnecttodatabase;
+package com.passgen.knack.PassGen;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +20,7 @@ public class ChildActivity extends AppCompatActivity implements SwipeRefreshLayo
     public Cursor mCursor;
     public SimpleCursorAdapter mCursorAd;
     public SwipeRefreshLayout mSwipeRefreshLayout;
+    Vibrator v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,6 +29,7 @@ public class ChildActivity extends AppCompatActivity implements SwipeRefreshLayo
         setContentView(R.layout.activity_child);
 
         listView = (ListView) findViewById(R.id.listView);
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
         {
@@ -37,6 +41,7 @@ public class ChildActivity extends AppCompatActivity implements SwipeRefreshLayo
             {
                 try
                 {
+                    v.vibrate(30);
                     TextView itemPassword = (TextView) view.findViewById(R.id.itemPassword);
                     TextView itemResource = (TextView) view.findViewById(R.id.itemResource);
                     TextView itemID = (TextView) view.findViewById(R.id.itemID);

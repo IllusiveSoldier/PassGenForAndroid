@@ -1,10 +1,12 @@
-package com.passgen.knack.passwordgeneratorandconnecttodatabase;
+package com.passgen.knack.PassGen;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.EditText;
@@ -19,6 +21,7 @@ public class DialogDeleteTable extends android.support.v4.app.DialogFragment
     TextView Key;
     EditText CheckKey;
     SQLiteDatabase db;
+    Vibrator v;
 
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState)
@@ -30,9 +33,11 @@ public class DialogDeleteTable extends android.support.v4.app.DialogFragment
         CheckKey = (EditText) form.findViewById(R.id.CheckKey);
         db = new DbHelper(getContext()).getWritableDatabase();
 
+        v = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+
         Key.setText(GenerateKey());
 
-        return(builder.setTitle("Введите проверочный ключ:").setView(form)
+        return(builder.setTitle("").setView(form)
                 .setPositiveButton(android.R.string.ok, this)
                 .setNegativeButton(android.R.string.cancel, null)
                 .create());
@@ -48,7 +53,11 @@ public class DialogDeleteTable extends android.support.v4.app.DialogFragment
                 new DB(getContext()).DeleteAndRestoreTable(db);
                 new ShowMessage(getContext()).ShowToast("Данные удалены!");
             }
-            else new ShowMessage(getContext()).ShowToast("Несовпадение ключей!");
+            else
+            {
+                v.vibrate(300);
+                new ShowMessage(getContext()).ShowToast("Несовпадение ключей!");
+            }
         }
         catch (Exception ex)
         {
@@ -62,7 +71,7 @@ public class DialogDeleteTable extends android.support.v4.app.DialogFragment
         Random rand = new Random();
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i <= 3; i++)
+        for (int i = 0; i <= 4; i++)
         {
             sb.append(resourceString.charAt(rand.nextInt(resourceString.length())));
         }

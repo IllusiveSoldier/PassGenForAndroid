@@ -3,4 +3,12 @@
     <string name="child_activity_label">Your passwords</string>
     <string name="web_activity_label">Web-browser</string>
     <string name="title_activity_child_son">child_son</string>>
+    <string name="hint_showing_password_text">Your password :)</string>
+    <string name="gen">GEN</string>
+    <string name="save_password">SAVE PASSWORD</string>
+    <string name="show_my_passwords">SHOW MY PASSWORDS</string>>
+    <string name="delete_all_passwords">DELETE ALL PASSWORDS</string>
+    <string name="enter_key">Введите ключ: </string>
+    <string name="your_resource">Your resource:</string>
+    <string name="title_delete_table">Введите ключ</string>
 </resources>

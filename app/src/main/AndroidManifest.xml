@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.passgen.knack.passwordgeneratorandconnecttodatabase">
+    package="com.passgen.knack.PassGen">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -10,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.passgen.knack.PassGen.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -20,14 +21,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ChildActivity"
+            android:name="com.passgen.knack.PassGen.ChildActivity"
             android:label="@string/child_activity_label"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.passgen.knack.PassGen.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ChildActivityTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.passgen.knack.PassGen.MainActivity" />
         </activity>
     </application>
 

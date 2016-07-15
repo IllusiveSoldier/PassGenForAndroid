@@ -1,4 +1,4 @@
-package com.passgen.knack.passwordgeneratorandconnecttodatabase;
+package com.passgen.knack.PassGen;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

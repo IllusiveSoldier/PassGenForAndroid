@@ -1,10 +1,8 @@
-package com.passgen.knack.passwordgeneratorandconnecttodatabase;
+package com.passgen.knack.PassGen;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.transition.Explode;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -31,11 +29,14 @@ public class MainActivity extends AppCompatActivity
         switch (v.getId())
         {
             case R.id.ShowMyPasswords:
+                /*
                 getWindow().setExitTransition(new Explode());
                 Intent intent = new Intent(this, ChildActivity.class);
                 startActivity(intent,
                         ActivityOptions
-                                .makeSceneTransitionAnimation(this).toBundle());
+                                .makeSceneTransitionAnimation(this).toBundle());*/
+                Intent intent = new Intent(this, ChildActivity.class);
+                startActivity(intent);
                 break;
             case R.id.GeneratePassButton:
                 ShowingPasswordText.setText(new GeneratePass().Generate());
