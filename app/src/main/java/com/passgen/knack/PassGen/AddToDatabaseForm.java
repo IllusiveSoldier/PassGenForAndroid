@@ -41,7 +41,7 @@ public class AddToDatabaseForm extends android.support.v4.app.DialogFragment
     {
         // Если поля для пароля или ресурса пусты - выводим мессэдж о ошибке
         if ((Password.getText().toString().equalsIgnoreCase("")) || (Resource.getText().toString().equalsIgnoreCase("")))
-            new ShowMessage(getContext()).ShowToast("Сначала сгенерируйте пароль!");
+            new ShowMessage(getContext()).ShowToast("Заполните все поля!");
         // Иначе добавляем запись в БД
         else
         {
