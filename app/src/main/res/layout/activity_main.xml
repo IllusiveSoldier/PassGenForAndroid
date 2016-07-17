@@ -11,70 +11,70 @@
 
 
     <EditText
+        android:id="@+id/ShowingPasswordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ShowingPasswordText"
         android:maxLength="25"
         android:maxLines="1"
-        android:hint="@string/hint_showing_password_text"
         android:enabled="false"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/GeneratePassButton"
-        android:layout_toStartOf="@+id/GeneratePassButton" />
+        android:layout_toStartOf="@+id/GeneratePassButton"
+        />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
+        android:id="@+id/GeneratePassButton"
         android:background="@drawable/circle"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:text="@string/gen"
-        android:textColor="@color/colorWhite"
-        android:id="@+id/GeneratePassButton"
+        android:textColor="@color/white"
         android:onClick="onClick"
         android:layout_alignTop="@+id/ShowingPasswordText"
         android:layout_alignRight="@+id/SavePassword"
-        android:layout_alignEnd="@+id/SavePassword" />
+        android:layout_alignEnd="@+id/SavePassword"
+        />
 
     <Button
-        style="@android:style/Theme.Material.Light"
+        android:id="@+id/SavePassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save_password"
-        android:id="@+id/SavePassword"
         android:onClick="onClick"
         android:layout_below="@+id/GeneratePassButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        />
 
     <Button
-        style="@android:style/Theme.Material.Light"
+        android:id="@+id/ShowMyPasswords"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/show_my_passwords"
-        android:id="@+id/ShowMyPasswords"
         android:onClick="onClick"
         android:layout_below="@+id/SavePassword"
         android:layout_alignRight="@+id/SavePassword"
         android:layout_alignEnd="@+id/SavePassword"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        />
 
     <Button
-        style="@android:style/Theme.Material.Light"
+        android:id="@+id/DeleteAllPasswords"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/delete_all_passwords"
-        android:id="@+id/DeleteAllPasswords"
         android:layout_alignParentBottom="true"
         android:onClick="onClick"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        />
 
 
 </RelativeLayout>

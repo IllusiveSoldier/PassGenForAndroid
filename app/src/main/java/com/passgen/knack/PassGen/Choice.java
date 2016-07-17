@@ -17,17 +17,23 @@ public class Choice extends android.support.v4.app.DialogFragment
     String RESOURCE;
     String PASSWORD;
     int ID;
+    String LOGIN;
 
-    Choice(String resource, String password, int id)
+    Choice(int id, String resource, String login, String password)
     {
         RESOURCE = resource;
         PASSWORD = password;
         ID = id;
+        LOGIN = login;
     }
 
-    String[] values = {"Скопировать в буфер обмена",
-            "Скопировать в буфер и открыть браузер",
-            "Удалить запись"};
+    // Варианты в дилоге
+    String[] values = {"Скопировать ЛОГИН в буфер обмена",
+                       "Скопировать ПАРОЛЬ в буфер обмена",
+                       "Скопировать ЛОГИН в буфер и открыть браузер",
+                       "Скопировать ПАРОЛЬ в буфер и открыть браузер",
+                       "Удалить запись"};
+    // Заголовок
     String title = "Что сделать?";
 
     @NonNull
@@ -41,9 +47,24 @@ public class Choice extends android.support.v4.app.DialogFragment
                     {
                         switch (which) {
                             case 0:
-                                SaveToClipboard(PASSWORD);
+                                SaveToClipboard(LOGIN);
                                 break;
                             case 1:
+                                SaveToClipboard(PASSWORD);
+                                break;
+                            case 2:
+                                SaveToClipboard(LOGIN);
+                                try
+                                {
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://" + RESOURCE)));
+                                }
+                                catch (Exception ex)
+                                {
+                                    new ShowMessage(getContext()).ShowToast("Ошибка перехода по адресу! \n"
+                                            + "Ошибка: " + ex.getMessage());
+                                }
+                                break;
+                            case 3:
                                 SaveToClipboard(PASSWORD);
                                 try
                                 {
@@ -52,10 +73,10 @@ public class Choice extends android.support.v4.app.DialogFragment
                                 catch (Exception ex)
                                 {
                                     new ShowMessage(getContext()).ShowToast("Ошибка перехода по адресу! \n"
-                                                    + "Ошибка: " + ex.getMessage());
+                                            + "Ошибка: " + ex.getMessage());
                                 }
                                 break;
-                            case 2:
+                            case 4:
                                 new ChoiceYesNo(ID).show(getFragmentManager(), "login");
                                 break;
                         }
@@ -72,7 +93,7 @@ public class Choice extends android.support.v4.app.DialogFragment
         ClipData clip = ClipData.newPlainText("", value);
         clipboard.setPrimaryClip(clip);
 
-        new ShowMessage(getContext()).ShowToast("Значение " + value + "было скопировано в буфер обмена.");
+        new ShowMessage(getContext()).ShowToast("Значение " + value + " было скопировано в буфер обмена.");
     }
 }
 

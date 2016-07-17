@@ -5,35 +5,51 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/itemResource"
-        android:textSize="18sp"
-        android:textAllCaps="true"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/itemID" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/itemPassword"
-        android:textSize="15sp"
-        android:layout_below="@+id/itemResource"
-        android:layout_toEndOf="@+id/itemID"
-        android:textStyle=""/>
-
-    <TextView
+        android:id="@+id/itemID"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:text="New Text"
-        android:id="@+id/itemID"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:textSize="12sp"
         android:textAlignment="center"
-        android:gravity="center_vertical"/>
+        android:gravity="center_vertical"
+        android:layout_alignBottom="@+id/itemPassword"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/itemResource"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:textSize="18sp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/itemID"
+        />
+
+    <TextView
+        android:id="@+id/itemLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:layout_below="@+id/itemResource"
+        android:layout_toRightOf="@+id/itemID"
+        android:layout_toEndOf="@+id/itemID"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:id="@+id/itemPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:textSize="15sp"
+        android:layout_below="@+id/itemLogin"
+        android:layout_toRightOf="@+id/itemID"
+        android:layout_toEndOf="@+id/itemID"
+        />
 
 </RelativeLayout>

@@ -9,25 +9,26 @@
 
 
     <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
         android:layout_gravity="center_horizontal"
         android:enabled="false"
         android:hint="@string/your_password"
-        android:inputType="text"/>
+        android:inputType="text"
+        />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
+        android:id="@+id/button"
         android:background="@drawable/circle"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:text="@string/gen"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/white"
         android:textSize="22sp"
-        android:id="@+id/button"
         android:layout_gravity="center_horizontal"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        />
 </RelativeLayout>

@@ -4,33 +4,36 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_delete_table"
-        android:id="@+id/textView"
+        android:text="@string/enter_key"
         android:layout_gravity="center_horizontal"
         android:textSize="20sp"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        />
 
     <TextView
+        android:id="@+id/Key"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
-        android:id="@+id/Key"
         android:layout_alignParentTop="true"
         android:textSize="23sp"
         android:textAlignment="center"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        />
 
     <EditText
+        android:id="@+id/CheckKey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/CheckKey"
         android:layout_gravity="center_horizontal"
         android:inputType="number"
         android:layout_alignParentStart="true"
         android:labelFor="@+id/CheckKey"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        />
 
 
 </LinearLayout>

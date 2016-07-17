@@ -3,33 +3,48 @@
     package="com.passgen.knack.PassGen">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/SalatTheme">
+
+        <!-- Activity "основное" -->
         <activity
-            android:name="com.passgen.knack.PassGen.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/SalatTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Activity для просмотра паролей -->
         <activity
-            android:name="com.passgen.knack.PassGen.ChildActivity"
+            android:name=".ChildActivity"
             android:label="@string/child_activity_label"
-            android:parentActivityName="com.passgen.knack.PassGen.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/ChildActivityTheme">
+            android:theme="@style/SeaTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.passgen.knack.PassGen.MainActivity" />
         </activity>
+
+        <!-- Activity для настроек-->
+        <activity
+            android:name=".Settings"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/settings"
+            android:theme="@style/PurpleTheme">
+        </activity>
+
     </application>
 
 </manifest>

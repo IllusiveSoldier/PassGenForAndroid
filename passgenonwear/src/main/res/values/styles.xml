@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Фиолетовая тема-->
+    <style name="PurpleTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary"              >@color/bright_purple</item>
+        <item name="colorPrimaryDark"          >@color/purple</item>
+        <item name="colorAccent"               >@color/bright_pink</item>
+        <item name="android:navigationBarColor">@color/purple</item>
+    </style>
+
+</resources>

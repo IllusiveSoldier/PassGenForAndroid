@@ -1,14 +1,15 @@
 <resources>
     <string name="app_name">PassGen</string>
     <string name="child_activity_label">Your passwords</string>
-    <string name="web_activity_label">Web-browser</string>
-    <string name="title_activity_child_son">child_son</string>>
     <string name="hint_showing_password_text">Your password :)</string>
-    <string name="gen">GEN</string>
-    <string name="save_password">SAVE PASSWORD</string>
-    <string name="show_my_passwords">SHOW MY PASSWORDS</string>>
-    <string name="delete_all_passwords">DELETE ALL PASSWORDS</string>
+    <string name="gen">gen</string>
+    <string name="save_password">save password</string>
+    <string name="show_my_passwords">show my passwords</string>>
+    <string name="delete_all_passwords">delete all passwords</string>
     <string name="enter_key">Введите ключ: </string>
     <string name="your_resource">Your resource:</string>
-    <string name="title_delete_table">Введите ключ</string>
+    <string name="your_login">Your login:</string>
+    <string name="settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="help">Help</string>
 </resources>

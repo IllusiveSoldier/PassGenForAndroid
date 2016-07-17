@@ -42,15 +42,16 @@ public class ChildActivity extends AppCompatActivity implements SwipeRefreshLayo
                 try
                 {
                     v.vibrate(30);
-                    TextView itemPassword = (TextView) view.findViewById(R.id.itemPassword);
-                    TextView itemResource = (TextView) view.findViewById(R.id.itemResource);
                     TextView itemID = (TextView) view.findViewById(R.id.itemID);
+                    TextView itemResource = (TextView) view.findViewById(R.id.itemResource);
+                    TextView itemLogin = (TextView) view.findViewById(R.id.itemLogin);
+                    TextView itemPassword = (TextView) view.findViewById(R.id.itemPassword);
 
-                    new Choice(itemResource.getText().toString(),
-                               itemPassword.getText().toString(),
-                               Integer.parseInt(itemID.getText()
-                                       .toString()))
-                                       .show(getSupportFragmentManager(), "login");
+                    new Choice(Integer.parseInt(itemID.getText().toString()),
+                               itemResource.getText().toString(),
+                               itemLogin.getText().toString(),
+                               itemPassword.getText().toString())
+                               .show(getSupportFragmentManager(), "login");
                 }
                 catch (Exception ex)
                 {
@@ -62,7 +63,7 @@ public class ChildActivity extends AppCompatActivity implements SwipeRefreshLayo
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.refresh);
         mSwipeRefreshLayout.setOnRefreshListener(this);
-        mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
+        mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.purple));
 
         GetValueFromDatabase();
     }
@@ -95,8 +96,13 @@ public class ChildActivity extends AppCompatActivity implements SwipeRefreshLayo
 
             String[] from = new String[] { DB.FeedEntry._ID,
                                            DB.FeedEntry.COLUMN_NAME_RESOURCE,
+                                           DB.FeedEntry.COLUMN_NAME_LOGIN,
                                            DB.FeedEntry.COLUMN_NAME_PASSWORD};
-            int[] to = new int[] { R.id.itemID, R.id.itemResource, R.id.itemPassword};
+
+            int[] to = new int[] { R.id.itemID,
+                                   R.id.itemResource,
+                                   R.id.itemLogin,
+                                   R.id.itemPassword};
 
             mCursorAd = new SimpleCursorAdapter(this, R.layout.item, mCursor, from, to, 0);
             listView.setAdapter(mCursorAd);

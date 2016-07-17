@@ -3,6 +3,9 @@ package com.passgen.knack.PassGen;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -21,6 +24,29 @@ public class MainActivity extends AppCompatActivity
 
         ShowingPasswordText = (EditText)findViewById(R.id.ShowingPasswordText);
         ShowingPasswordText.setText(new GeneratePass().Generate());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.itemSettings:
+                Intent intent = new Intent(this, Settings.class);
+                startActivity(intent);
+                return true;
+            case R.id.itemHelp:
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     // Обработчик нажатия на все кнопки

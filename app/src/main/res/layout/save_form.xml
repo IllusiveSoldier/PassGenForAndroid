@@ -6,22 +6,34 @@
     android:layout_height="match_parent">
 
     <EditText
+        android:id="@+id/Resource"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Resource"
         android:hint="@string/your_resource"
         android:inputType="textNoSuggestions|textVisiblePassword|textPassword"
         android:layout_gravity="center_horizontal"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        />
 
     <EditText
+        android:id="@+id/Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/your_login"
+        android:textAlignment="center"
+        android:inputType="textNoSuggestions|textVisiblePassword|textPassword"
+        />
+
+    <EditText
         android:id="@+id/Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:inputType="textNoSuggestions|textVisiblePassword|textPassword"
         android:enabled="true"
         android:layout_gravity="center_horizontal"
-        android:labelFor="@+id/Password"/>
+        android:labelFor="@+id/Password"
+        />
 
 </LinearLayout>

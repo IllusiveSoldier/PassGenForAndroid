@@ -16,7 +16,8 @@ public class ChoiceYesNo extends android.support.v4.app.DialogFragment
         ID = id;
     }
 
-    String[] values = {"Да", "Нет"};
+    String[] values = {"Да",
+                       "Нет"};
     String title = "Удалить?";
 
     @NonNull

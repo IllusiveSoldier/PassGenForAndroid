@@ -39,6 +39,7 @@ public final class DB
     {
         public static final String TABLE_NAME = "passwords";
         public static final String COLUMN_NAME_RESOURCE = "resource";
+        public static final String COLUMN_NAME_LOGIN = "login";
         public static final String COLUMN_NAME_PASSWORD = "password";
     }
 
@@ -47,7 +48,8 @@ public final class DB
     // Запрос на создание таблицы
     public static final String CREATE_TABLE = "CREATE TABLE " + FeedEntry.TABLE_NAME +
             " (" + FeedEntry._ID + " INTEGER PRIMARY KEY, " + FeedEntry.COLUMN_NAME_RESOURCE +
-            TEXT_TYPE + COMMA_SEP + FeedEntry.COLUMN_NAME_PASSWORD + TEXT_TYPE + " )";
+            TEXT_TYPE + COMMA_SEP + FeedEntry.COLUMN_NAME_LOGIN
+            + TEXT_TYPE + COMMA_SEP + FeedEntry.COLUMN_NAME_PASSWORD + TEXT_TYPE + " )";
     // Запрос на удаление таблицы
     public static final  String DELETE_TABLE = "DROP TABLE IF EXISTS " + FeedEntry.TABLE_NAME;
 
@@ -57,7 +59,7 @@ public final class DB
         db.delete(FeedEntry.TABLE_NAME, FeedEntry._ID + " = " + id, null);
     }
 
-    public void AddValueToDatabase(final String resource, final String password)
+    public void AddValueToDatabase(final String resource, final String login, final String password)
     {
         DbHelper mDbHelper = new DbHelper(context);
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
@@ -65,6 +67,7 @@ public final class DB
         // Определяем вставляемые значения
         ContentValues values = new ContentValues();
         values.put(DB.FeedEntry.COLUMN_NAME_RESOURCE, resource);
+        values.put(DB.FeedEntry.COLUMN_NAME_LOGIN, login);
         values.put(DB.FeedEntry.COLUMN_NAME_PASSWORD, password);
         // Вставляем значения
         db.insert(DB.FeedEntry.TABLE_NAME, null, values);

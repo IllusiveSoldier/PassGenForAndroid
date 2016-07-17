@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.view.View;
 import android.widget.EditText;
 
@@ -16,6 +18,7 @@ public class AddToDatabaseForm extends android.support.v4.app.DialogFragment
 
     EditText ShowingPasswordText;
     EditText Resource;
+    EditText Login;
     EditText Password;
 
     @NonNull
@@ -25,8 +28,9 @@ public class AddToDatabaseForm extends android.support.v4.app.DialogFragment
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         ShowingPasswordText = (EditText) getActivity().findViewById(R.id.ShowingPasswordText);
-        Password = (EditText) form.findViewById(R.id.Password);
         Resource = (EditText) form.findViewById(R.id.Resource);
+        Login = (EditText) form.findViewById(R.id.Login);
+        Password = (EditText) form.findViewById(R.id.Password);
 
         Password.setText(ShowingPasswordText.getText().toString());
 
@@ -40,7 +44,9 @@ public class AddToDatabaseForm extends android.support.v4.app.DialogFragment
     public void onClick(DialogInterface dialog, int which)
     {
         // Если поля для пароля или ресурса пусты - выводим мессэдж о ошибке
-        if ((Password.getText().toString().equalsIgnoreCase("")) || (Resource.getText().toString().equalsIgnoreCase("")))
+        if ((Password.getText().toString().equalsIgnoreCase(""))
+                || (Resource.getText().toString().equalsIgnoreCase(""))
+                || (Login.getText().toString().equalsIgnoreCase("")))
             new ShowMessage(getContext()).ShowToast("Заполните все поля!");
         // Иначе добавляем запись в БД
         else
@@ -51,8 +57,10 @@ public class AddToDatabaseForm extends android.support.v4.app.DialogFragment
                 {
                     try
                     {
-                        new DB(getContext()).AddValueToDatabase(Resource.getText().toString(), Password.getText()
-                                .toString());
+                        // Передаём в конструктор строки с ресурса, логина и паса
+                        new DB(getContext()).AddValueToDatabase(Resource.getText().toString(),
+                                                                Login.getText().toString(),
+                                                                Password.getText().toString());
                     }
                     catch (Exception ex)
                     {
@@ -62,6 +70,19 @@ public class AddToDatabaseForm extends android.support.v4.app.DialogFragment
             };
             Thread thread = new Thread(runnable);
             thread.start();
+
+            int notificationId = 001;
+
+            NotificationCompat.Builder notificationBuilder =
+                    new NotificationCompat.Builder(getContext())
+                            .setSmallIcon(R.drawable.ic_notifications_black_24dp)
+                            .setContentTitle("PassGen")
+                            .setContentText("Пароль добавлен в базу данных");
+
+            NotificationManagerCompat notificationManager =
+                    NotificationManagerCompat.from(getContext());
+
+            notificationManager.notify(notificationId, notificationBuilder.build());
         }
     }
 
