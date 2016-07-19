@@ -36,15 +36,23 @@
                 android:value="com.passgen.knack.PassGen.MainActivity" />
         </activity>
 
-        <!-- Activity для настроек-->
+        <!-- Activity для настроек -->
         <activity
             android:name=".Settings"
+            android:label="@string/settings"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
-            android:label="@string/settings"
             android:theme="@style/PurpleTheme">
         </activity>
 
+        <!-- Activity для хэлпа-->
+        <activity
+            android:name=".HelpActivity"
+            android:label="@string/help"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/OrangeTheme">
+        </activity>
     </application>
 
 </manifest>

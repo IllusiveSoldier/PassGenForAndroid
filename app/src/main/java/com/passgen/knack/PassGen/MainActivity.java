@@ -13,6 +13,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity
 {
     EditText ShowingPasswordText;
+    Intent intent;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -38,11 +39,12 @@ public class MainActivity extends AppCompatActivity
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.itemSettings:
-                Intent intent = new Intent(this, Settings.class);
+                intent = new Intent(this, Settings.class);
                 startActivity(intent);
                 return true;
             case R.id.itemHelp:
-
+                intent = new Intent(this, HelpActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent,
                         ActivityOptions
                                 .makeSceneTransitionAnimation(this).toBundle());*/
-                Intent intent = new Intent(this, ChildActivity.class);
+                intent = new Intent(this, ChildActivity.class);
                 startActivity(intent);
                 break;
             case R.id.GeneratePassButton:
